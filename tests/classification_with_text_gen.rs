@@ -727,8 +727,8 @@ async fn input_detector_client_error() -> Result<(), anyhow::Error> {
     // Configure mock servers
     let mock_generation_server = MockServer::new_grpc("nlp").with_mocks(generation_mocks);
     let mock_chunker_server = MockServer::new_grpc(CHUNKER_NAME_SENTENCE).with_mocks(chunker_mocks);
-    let mock_detector_server =
-        MockServer::new_http(DETECTOR_NAME_ANGLE_BRACKETS_SENTENCE).with_mocks(detector_mocks.clone());
+    let mock_detector_server = MockServer::new_http(DETECTOR_NAME_ANGLE_BRACKETS_SENTENCE)
+        .with_mocks(detector_mocks.clone());
     // Create mock server for whole_doc detector as well since the test uses it
     let mock_detector_whole_doc_server =
         MockServer::new_http(DETECTOR_NAME_ANGLE_BRACKETS_WHOLE_DOC).with_mocks(detector_mocks);
